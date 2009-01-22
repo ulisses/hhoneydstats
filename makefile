@@ -2,4 +2,6 @@ all:
 	ghc -O2 -fvia-C -optc-O3 -funbox-strict-fields --make Main.hs -o stats
 
 clean:
-	rm *.o *.hi stats *~ *.png
+	rm *.o *.hi stats *~
+extreme-clean:
+	rm *.png *.o *.hi stats *~

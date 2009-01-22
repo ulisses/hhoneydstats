@@ -1,6 +1,8 @@
 {-#OPTIONS -fno-monomorphism-restriction -XParallelListComp#-}
 module Main where
 
+import Data.Array.Vector
+
 import Control.Monad.State
 import Control.Monad.Instances
 import IO
@@ -332,6 +334,7 @@ logFile = "honeyd.log"
 
 -- ler: http://permalink.gmane.org/gmane.comp.lang.haskell.cafe/50340
 main = runPortNIPSrc 25
+--main = print . sumU . mapU (+7) $ zipWithU (*)(enumFromToU 1 (4000000 :: Int)) (enumFromToU 2 (4000001 :: Int))
 
 -- hit's by host for port n
 runPortNIPSrc n = readFile logFile >>= run . filterByPortDst (Port n) . lexer . lines
